@@ -1,0 +1,12 @@
+# MacOS directory files
+.DS_Store
+
+# Build, config, dist, dependencies.lock and cache files
+# for components and examples
+**/build
+**/cmake-build-debug
+**/sdkconfig
+**/sdkconfig.old
+**/dist
+**/*.lock
+**/.cache
