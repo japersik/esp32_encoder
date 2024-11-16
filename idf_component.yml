@@ -1,0 +1,8 @@
+name: "esp32_encoder"
+license: "MIT"
+version: "1.0.0"
+repository: https://github.com/japersik/esp32_encoder
+description: "A component to simplify interaction with encoders."
+dependencies:
+  idf:
+    version: ">=5.0.0"
