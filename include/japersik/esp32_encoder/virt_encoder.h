@@ -4,21 +4,23 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-typedef void (*EncoderCallbackFunction)(uint8_t id, int64_t position);
+#include "callback_funcs.h"
 
 typedef struct {
-  uint8_t id;
   EncoderCallbackFunction event_callback;
-  int64_t curruent_position;
+  void *event_callback_cxt;
+
+  int32_t curruent_position;
   bool inverse;
   bool last_state_a;
   bool last_state_b;
-  uint32_t last_event_time_ms;
 } VirtEncoder;
 
-VirtEncoder *encoder_new(uint8_t id);
+VirtEncoder *virt_encoder_new();
 
-void encoder_free(VirtEncoder *);
-void encoder_set_callback(VirtEncoder *, EncoderCallbackFunction);
-void encoder_rorate_on_time(VirtEncoder *, bool a_state, bool b_state, uint32_t time_ms);
-#endif	// !_JAPERSIK_ESP32_ENCODER_VIRT_ENCODER_H
+void virt_encoder_free(VirtEncoder *);
+void virt_encoder_set_callback(VirtEncoder *, EncoderCallbackFunction, void *);
+void virt_encoder_rorate(VirtEncoder *, bool a_state, bool b_state);
+void virt_encoder_change_a(VirtEncoder *, bool a_state);
+void virt_encoder_change_b(VirtEncoder *, bool b_state);
+#endif // !_JAPERSIK_ESP32_ENCODER_VIRT_ENCODER_H
