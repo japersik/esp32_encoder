@@ -13,7 +13,7 @@
 #include "portmacro.h"
 
 struct PcntEncoder {
-  EncoderCallbackFunction event_callback;
+  EncoderCallbackFunc event_callback;
   void *event_callback_cxt;
 
   gpio_port_t a;
@@ -116,7 +116,7 @@ PcntEncoder *pcnt_encoder_new(gpio_port_t a, gpio_port_t b) {
 
 void pcnt_encoder_free(PcntEncoder *self) { free(self); }
 
-void pcnt_encoder_set_callback(PcntEncoder *self, EncoderCallbackFunction f, void *user_ctx) {
+void pcnt_encoder_set_callback(PcntEncoder *self, EncoderCallbackFunc f, void *user_ctx) {
   self->event_callback = f;
   self->event_callback_cxt = user_ctx;
 }

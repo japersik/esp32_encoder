@@ -12,5 +12,5 @@ typedef struct PcntEncoder PcntEncoder;
 PcntEncoder *pcnt_encoder_new(gpio_port_t a, gpio_port_t b);
 
 void pcnt_encoder_free(PcntEncoder *);
-void pcnt_encoder_set_callback(PcntEncoder *, EncoderCallbackFunction, void *user_ctx);
+void pcnt_encoder_set_callback(PcntEncoder *, EncoderCallbackFunc, void *user_ctx);
 #endif	// !_JAPERSIK_ESP32_ENCODER_PCNT_ENCODER_H

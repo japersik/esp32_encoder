@@ -10,8 +10,8 @@ typedef struct EncoderCallbackEvent {
   int32_t delta;
 } EncoderCallbackEvent;
 
-typedef void (*EncoderCallbackFunction)(EncoderCallbackEvent event, void *user_ctx);
+typedef void (*EncoderCallbackFunc)(EncoderCallbackEvent event, void *user_ctx);
 
-void encoder_callback_print_event(EncoderCallbackEvent event, void *user_ctx);
+void encoder_event_callback_print(EncoderCallbackEvent event, void *user_ctx);
 
-#endif	// !_JAPERSIK_ESP32_ENCODER_CALLBACK_FUNCS_H
+#endif // !_JAPERSIK_ESP32_ENCODER_CALLBACK_FUNCS_H

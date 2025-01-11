@@ -14,9 +14,9 @@ VirtEncoder *virt_encoder_new() {
 
 void virt_encoder_free(VirtEncoder *self) { free(self); }
 
-void virt_encoder_set_callback(VirtEncoder *self, EncoderCallbackFunction f, void *user_ctx) {
+void virt_encoder_set_callback(VirtEncoder *self, EncoderCallbackFunc f, void *c) {
   self->event_callback = f;
-  self->event_callback_cxt = user_ctx;
+  self->event_callback_cxt = c;
 }
 
 const int64_t _state_table[4][4] = {

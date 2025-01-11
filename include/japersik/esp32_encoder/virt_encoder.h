@@ -7,7 +7,7 @@
 #include "callback_funcs.h"
 
 typedef struct {
-  EncoderCallbackFunction event_callback;
+  EncoderCallbackFunc event_callback;
   void *event_callback_cxt;
 
   int32_t curruent_position;
@@ -19,7 +19,8 @@ typedef struct {
 VirtEncoder *virt_encoder_new();
 
 void virt_encoder_free(VirtEncoder *);
-void virt_encoder_set_callback(VirtEncoder *, EncoderCallbackFunction, void *);
+void virt_encoder_set_callback(VirtEncoder *, EncoderCallbackFunc,
+                               void *user_ctx);
 void virt_encoder_rorate(VirtEncoder *, bool a_state, bool b_state);
 void virt_encoder_change_a(VirtEncoder *, bool a_state);
 void virt_encoder_change_b(VirtEncoder *, bool b_state);

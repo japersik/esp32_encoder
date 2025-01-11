@@ -1,6 +1,7 @@
 
 #include "driver/gpio.h"
 #include "freertos/FreeRTOS.h"
+#include "japersik/esp32_encoder/callback_funcs.h"
 #include "japersik/esp32_encoder/virt_encoder.h"
 
 #define INPUT_PIN_1 21
@@ -18,7 +19,7 @@ void app_main() {
   gpio_pullup_en(INPUT_PIN_2);
 
   VirtEncoder* encoder = virt_encoder_new();
-  virt_encoder_set_callback(encoder, encoder_callback_print_event, "test_encoder");
+  virt_encoder_set_callback(encoder, encoder_event_callback_print, "test_encoder");
   for (;;) {
     int level1 = gpio_get_level(INPUT_PIN_1);
     int level2 = gpio_get_level(INPUT_PIN_2);
